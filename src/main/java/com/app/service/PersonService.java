@@ -22,4 +22,8 @@ public class PersonService  {
         return personDao.findByName(name);
     }
 
+    public List<Person> findByNameAndEmaile(String name,String emaile){
+        return personDao.findByNameAndEmaile(name,emaile);
+    }
+
 }

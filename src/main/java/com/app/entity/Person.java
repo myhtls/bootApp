@@ -4,6 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Person.findByNameAndEmaile",query="select person from Person person where person.name=?1 and person.emaile like ?2")
+})
 @Table(name = "person")
 public class Person {
 

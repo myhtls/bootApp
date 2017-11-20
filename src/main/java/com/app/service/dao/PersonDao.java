@@ -10,4 +10,7 @@ public interface PersonDao extends Repository<Person,Long>{
     public List<Person> findAll();
 
     public Person findByName(String name);
+
+
+    public List<Person> findByNameAndEmaile(String name,String emaile);
 }

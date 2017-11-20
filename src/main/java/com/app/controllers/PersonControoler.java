@@ -26,8 +26,16 @@ public class PersonControoler {
 
     @RequestMapping(value="/{name}",method = RequestMethod.GET)
     public Person findByName(@PathVariable("name") String name){
-        System.err.println(name);
         return personService.findPersonByName(name);
     }
+
+    @RequestMapping(value="/{name}/{emalie}",method = RequestMethod.GET)
+    public List<Person> findByNameAndEmaile(@PathVariable("name") String name,@PathVariable("emalie") String emalie){
+        System.err.println(name);
+        System.err.println(emalie);
+        return personService.findByNameAndEmaile(name,"%"+emalie+"%");
+    }
+
+
 
 }
