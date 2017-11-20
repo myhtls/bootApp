@@ -9,13 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class PersonService {
+public class PersonService  {
 
-    @Autowired
-    private PersonDao personDao;
+    private @Autowired PersonDao personDao;
 
     public List<Person> findAll(){
         return personDao.findAll();
+    }
+
+
+    public Person findPersonByName(String name){
+        return personDao.findByName(name);
     }
 
 }
