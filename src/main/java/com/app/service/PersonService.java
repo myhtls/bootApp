@@ -26,4 +26,8 @@ public class PersonService  {
         return personDao.findByNameAndEmaile(name,emaile);
     }
 
+    public Person findPersonById(long id){
+        return personDao.findBy(id);
+    }
+
 }

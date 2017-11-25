@@ -5,7 +5,7 @@ import org.springframework.data.repository.Repository;
 
 import java.util.List;
 
-public interface PersonDao extends Repository<Person,Long>{
+public interface PersonDao extends BaseRepository<Person,Long>{
 
     public List<Person> findAll();
 

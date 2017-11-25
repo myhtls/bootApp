@@ -1,14 +1,17 @@
 package com.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Person.findByNameAndEmaile",query="select person from Person person where person.name=?1 and person.emaile like ?2")
 })
 @Table(name = "person")
-public class Person {
+public class Person implements java.io.Serializable{
 
     @NotNull
     @Id

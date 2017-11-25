@@ -12,14 +12,21 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value="/persons")
-public class PersonControoler {
+public class PersonControoler implements java.io.Serializable{
 
     @Autowired
     private PersonService personService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Person> home(){
+     public List<Person> home(){
         return personService.findAll();
+    }
+
+
+    @RequestMapping(value="/person/{id}",method = RequestMethod.GET)
+    public Person findByKey(@PathVariable("id")Long id){
+
+        return personService.findPersonById(id);
     }
 
 
@@ -31,8 +38,6 @@ public class PersonControoler {
 
     @RequestMapping(value="/{name}/{emalie}",method = RequestMethod.GET)
     public List<Person> findByNameAndEmaile(@PathVariable("name") String name,@PathVariable("emalie") String emalie){
-        System.err.println(name);
-        System.err.println(emalie);
         return personService.findByNameAndEmaile(name,"%"+emalie+"%");
     }
 
